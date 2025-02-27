@@ -1,0 +1,57 @@
+
+<h1>Giphy</h1>
+
+<h2>Giphy Search Criteria</h2>
+
+<!--(ngSubmit) - it automatically prevents the default form submission behavior, allowing your Angular application to handle the form data without a page refresh.
+If you were to use the standard (submit) event instead, you would need to add code to prevent this default behavior, usually by adding $event.preventDefault() in your event handler.-->
+
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+    <table>
+        <tr>
+            <td>
+                Query:
+            </td>
+            <td>
+                <input formControlName="q">
+            </td>        
+        </tr>
+        <tr>
+            <td>
+                Limit:
+            </td>
+            <td>
+                <input type="range" min="1" max="25" value="5" formControlName="limit" (change)="limitChange()">
+                {{ resultsCount }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Rating:
+            </td>
+            <td>
+                <!--Radio buttons need to share the same name to be treated as a group-->
+                <!--The id is required to 'connect' the input to the label for=''-->
+                <input type="radio" formControlName="rating" id="g" value="g">
+                <label for="g">G</label>
+
+                <input type="radio" formControlName="rating" id="pg" value="pg">
+                <label for="pg">PG</label>
+
+                <input type="radio" formControlName="rating" id="pg-13" value="pg-13">
+                <label for="pg-13">PG-13</label>
+
+                <input type="radio" formControlName="rating" id="r" value="r">
+                <label for="r">R</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button">Clear</button>
+            </td>
+            <td>
+                <button type="submit" [disabled]="searchForm.invalid">Search</button>
+            </td>
+        </tr>
+    </table>
+</form>
