@@ -1,6 +1,6 @@
 export const SEARCH_ENDPOINT:string = "https://api.giphy.com/v1/gifs/search"
 
-export const API_KEY:string = "OUmTO6CobjWZzz0PvZDhhgesayH81SPY"
+export const API_KEY:string = "deletedAPIkey"
 
 export const RATING_DEFAULT:string = "g"
 
